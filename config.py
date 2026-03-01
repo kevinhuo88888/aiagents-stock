@@ -8,6 +8,9 @@ load_dotenv(override=True)
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1")
 
+# 默认AI模型名称（支持任何OpenAI兼容的模型）
+DEFAULT_MODEL_NAME = os.getenv("DEFAULT_MODEL_NAME", "deepseek-chat")
+
 # 其他配置
 TUSHARE_TOKEN = os.getenv("TUSHARE_TOKEN", "")
 
@@ -21,4 +24,10 @@ MINIQMT_CONFIG = {
     'account_id': os.getenv("MINIQMT_ACCOUNT_ID", ""),
     'host': os.getenv("MINIQMT_HOST", "127.0.0.1"),
     'port': int(os.getenv("MINIQMT_PORT", "58610")),
+}
+
+# TDX股票数据API配置项目地址github.com/oficcejo/tdx-api
+TDX_CONFIG = {
+    'enabled': os.getenv("TDX_ENABLED", "false").lower() == "true",
+    'base_url': os.getenv("TDX_BASE_URL", "http://192.168.1.222:8181"),
 }
